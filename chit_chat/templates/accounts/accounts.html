@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-4 d-flex flex-wrap">
+    {% for user in users  %}
+    {% if not user == request.user %}
+    <section class="card m-3" style="width: 18rem;">
+        <div class="card-body">
+            <h4 class="card-title">{{user.username}}</h4>
+            <a href="{% url "chat" user.username %}" class="btn-solid theme-primary">Chat</a>
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock  %}
